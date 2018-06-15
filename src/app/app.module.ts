@@ -5,11 +5,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { UserComponent } from './user/user.component';
-// import { UserService } from './user/user.service';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { routing } from './app.routing';
+
+import { Angular2TokenService, A2tUiModule } from 'angular2-token';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,16 @@ import { routing } from './app.routing';
     HomeComponent,
     HeaderComponent,
     NotFoundComponent,
-    UserComponent,
-    // UserService
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     routing,
+    A2tUiModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers:    [ Angular2TokenService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
